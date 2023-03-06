@@ -1,0 +1,6 @@
+com/example/awesomepizza/repository/OrdersRepository.class
+com/example/awesomepizza/controller/MainController.class
+com/example/awesomepizza/model/Pizza.class
+com/example/awesomepizza/AwesomePizzaApplication.class
+com/example/awesomepizza/model/Orders.class
+com/example/awesomepizza/repository/PizzaRepository.class
