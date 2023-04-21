@@ -1,5 +1,7 @@
-FROM mysql
+FROM maven:3.9.0-eclipse-temurin-17-alpine
+WORKDIR /workspace/app
 
-COPY ./scriptInitDb.sql /docker-entrypoint-initdb.d
+COPY . .
+EXPOSE 8080
 
-EXPOSE 3306
+CMD mvn spring-boot:run

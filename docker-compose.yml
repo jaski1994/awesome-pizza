@@ -1,12 +1,39 @@
-version: '3.1'
-
+version: "3.9"
 services:
-
-  db:
+  my-app:
     build: .
-    command: --default-authentication-plugin=mysql_native_password
-    restart: always
-    environment:
-      MYSQL_ROOT_PASSWORD: example
     ports:
-      - 3307:3307
+      - "8080:8080"
+    depends_on:
+      - mysql
+    restart: on-failure
+    environment:
+      DB_HOST: 10.5.0.5
+      DB_USER: mydatabase
+      DB_PASSWORD: mydatabase
+      DB_PORT: 3306
+      DB_Name: mydatabase
+    networks:
+      vpcbr:
+        ipv4_address: 10.5.0.6
+  mysql:
+    image: mysql
+    restart: on-failure
+    environment:
+      MYSQL_DATABASE: mydatabase
+      MYSQL_USER: mydatabase
+      MYSQL_PASSWORD: mydatabase
+      MYSQL_ROOT_PASSWORD: mydatabase
+    ports:
+      - "3306:3306"
+    networks:
+      vpcbr:
+        ipv4_address: 10.5.0.5
+      
+networks:
+  vpcbr:
+    driver: bridge
+    ipam:
+     config:
+       - subnet: 10.5.0.0/16
+         gateway: 10.5.0.1
