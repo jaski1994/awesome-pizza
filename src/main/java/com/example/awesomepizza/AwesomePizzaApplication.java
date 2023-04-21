@@ -17,6 +17,8 @@ public class AwesomePizzaApplication {
 }
  */
 
+
+
  @SpringBootApplication
 public class AwesomePizzaApplication extends SpringBootServletInitializer {
 
@@ -27,5 +29,6 @@ public class AwesomePizzaApplication extends SpringBootServletInitializer {
   
 	public static void main(String[] args) {
 		SpringApplication.run(AwesomePizzaApplication.class, args);
-	}  
+	}
+
   }
